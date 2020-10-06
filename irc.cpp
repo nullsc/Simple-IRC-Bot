@@ -19,6 +19,9 @@ int main(){
 	std::ofstream logfile("test.txt", std::ofstream::app);
 	// https://docs.microsoft.com/en-us/windows/win32/winsock/getting-started-with-winsock
 
+	const char* server = "chat.freenode.net"; 
+	const char* port = "6667";
+	
 	std::string User = "Test";
 	std::string serverPass = "";
 	std::string Nick = "test";
@@ -46,7 +49,7 @@ int main(){
 	hints.ai_protocol = IPPROTO_TCP;
 
 	// Resolve the server address and port
-	iResult = getaddrinfo("chat.freenode.net", "6667", &hints, &result); //will change
+	iResult = getaddrinfo(server, port, &hints, &result);
 	if (iResult != 0) {
 		printf("getaddrinfo failed: %d\n", iResult);
 		WSACleanup();
