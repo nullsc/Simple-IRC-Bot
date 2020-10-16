@@ -8,8 +8,6 @@
 
 #define DEFAULT_BUFLEN 512 //4096
 
-//void parse(SOCKET sock, std::string ircline);
-
 void sendIrc(SOCKET sock, std::string buffer) {
 	send(sock, buffer.c_str(), buffer.size(), 0);
 }
@@ -137,7 +135,6 @@ int main(){
 				sendIrc(ConnectSocket, pong + "\r\n");
 				printf("%s", pong.c_str());
 			}
-			//parse(ConnectSocket, stringbuf);
 
 		}
 		else if (iResult == 0)
